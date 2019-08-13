@@ -9,7 +9,6 @@
             margin: 0;
             padding: 0;
         }
-
         canvas {
             display: block;
         }
@@ -25,9 +24,8 @@
     var fallLength = 50000;//焦距
     var centerX = cvs.width / 2;
     var centerY = cvs.height / 2;
-
     /**
-     * @desc 构造一个的点(三维坐标系下)
+     * @desc 构造一个顶点(三维坐标系下)
      * @param x
      * @param y
      * @param z
@@ -44,9 +42,8 @@
             return {x: x, y: y};
         }
     };
-
     /**
-     * @desc 构造一个的3d饼图
+     * @desc 构造一个3d饼图
      * @param size
      * @param width
      * @param height
@@ -58,7 +55,6 @@
         this.height = height;
         this.faces = [];
     };
-
     //将圆均分为180个点
     var length = 180;
     var increment = Math.PI * 2 / length;
@@ -68,7 +64,6 @@
             this.iUnderVertors = [];
             this.oTopVertors = [];
             this.iTopVertors = [];
-
             var angle = 0;
             while (angle <= Math.PI * 2) {
                 this.oUnderVertors.push(new Vector(this.oRadius * Math.cos(angle), this.oRadius * Math.sin(angle), -this.height / 2));
@@ -97,8 +92,6 @@
             });
         }
     };
-
-
     var Face = function (oVectors, iVectors, startAngle, endAngle, color) {
         this.oVectors = oVectors;
         this.iVectors = iVectors;
@@ -143,7 +136,6 @@
             angleX = y * 0.0001;
         });
     }
-
     function rotateX(vectors) {
         var cos = Math.cos(angleX);
         var sin = Math.sin(angleX);
@@ -164,7 +156,6 @@
             vector.z = z1;
         });
     }
-
     var pie = new Pie(500, 100, 50);
     pie.initVector();
     function initAnimate() {
